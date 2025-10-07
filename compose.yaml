@@ -45,3 +45,21 @@ services:
             - driver: nvidia
               device_ids: ["${DOCKER_GPU_ID}"]
               capabilities: [gpu]
+  devel:
+    extends: base
+    image: egg:devel
+    container_name: egg_devel
+    build:
+      target: devel
+      dockerfile: dockerfiles/devel.Dockerfile
+    volumes:
+      - ./tmux.conf:${DOCKER_HOME}/.tmux.conf
+      - ./config/aliasrc:${DOCKER_HOME}/.config/aliasrc
+      - ./config/tmux:${DOCKER_HOME}/.config/tmux
+      - ./config/starship.toml:${DOCKER_HOME}/.config/starship.toml
+      - ./config/zellij:${DOCKER_HOME}/.config/zellij
+      - ./config/yazi:${DOCKER_HOME}/.config/yazi
+      - ./config/nvim:${DOCKER_HOME}/.config/nvim
+      - ./misc/nnn_ubt2004:${DOCKER_HOME}/.local/bin/nnn
+      - ./zshrc:${DOCKER_HOME}/.zshrc
+      - ./zshrc.d:${DOCKER_HOME}/.zshrc.d
