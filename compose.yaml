@@ -1,0 +1,47 @@
+services:
+  # Base image containing dependencies.
+  base:
+    image: egg:base
+    container_name: egg_base
+    user: ${DOCKER_USER}
+    build: 
+      context: . 
+      dockerfile: dockerfiles/base.Dockerfile
+      target: base
+      network: host
+    # Interactive shell
+    stdin_open: true
+    tty: true
+    # Networking and IPC for ROS
+    network_mode: host
+    ipc: host
+    environment:
+      # Allows graphical programs in the container.
+      - DISPLAY=${DISPLAY}
+      - QT_X11_NO_MITSHM=1
+      - NVIDIA_DRIVER_CAPABILITIES=all
+      - NVIDIA_VISIBLE_DEVICES=all
+      - USER=${DOCKER_USER}
+      - HOME=${DOCKER_HOME}
+    volumes:
+      - ./bashrc.d:${DOCKER_HOME}/.bashrc.d
+      # Allows graphical programs in the container.
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - /dev/dri:/dev/dri
+      - /dev/usb:/dev/usb
+      - /dev/video0:/dev/video0
+      # Mount ros workspace
+      - ./workspace:${DOCKER_HOME}/workspace
+      - ./bags/:${DOCKER_HOME}/bags
+      - ./data/:${DOCKER_HOME}/data
+      - ./logs/:${DOCKER_HOME}/logs
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    privileged: true # GUI related
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: ["${DOCKER_GPU_ID}"]
+              capabilities: [gpu]

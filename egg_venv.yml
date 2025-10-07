@@ -1,0 +1,12 @@
+channels:
+  - conda-forge
+  - robostack
+  - robostack-staging
+dependencies:
+  - python==3.9.*
+  - ros-noetic-ros-base
+  - catkin_tools
+  - cmake==3.16
+  - ros-noetic-tf2-sensor-msgs
+  - ros-noetic-tf2
+  - ros-noetic-tf
