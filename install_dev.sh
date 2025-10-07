@@ -1,5 +1,5 @@
 #!/bin/sh
-NVIM_VERSION=v0.11.4
+NVIM_VERSION=v0.10.3
 NODE_VERSION=21
 
 # CLI development tools
