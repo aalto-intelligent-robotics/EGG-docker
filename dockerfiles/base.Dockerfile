@@ -8,7 +8,7 @@ SHELL ["/bin/bash", "-c"]
 #===============================================================================
 # non-root username
 ARG USERNAME=ros
-ARG USER_UID=1007
+ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 
 # Create a non-root user
