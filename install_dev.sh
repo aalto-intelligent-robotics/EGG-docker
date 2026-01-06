@@ -1,5 +1,5 @@
 #!/bin/sh
-NVIM_VERSION=v0.10.3
+NVIM_VERSION=v0.11.5
 NODE_VERSION=21
 
 # CLI development tools
@@ -32,9 +32,9 @@ nvm use default
 
 # add node and npm to path so the commands are available
 # Neovim installation
-wget https://github.com/neovim/neovim/releases/download/${NVIM_VERSION}/nvim-linux64.tar.gz
-tar xzvf nvim-linux64.tar.gz
+wget https://github.com/neovim/neovim-releases/releases/download/${NVIM_VERSION}/nvim-linux-x86_64.tar.gz
+tar xzvf nvim-linux-x86_64.tar.gz
 mkdir -p ${HOME}/.local/bin
-cp ${HOME}/nvim-linux64/bin/nvim ${HOME}/.local/bin
-sudo cp -r ${HOME}/nvim-linux64/share/nvim /usr/share
-rm -rf ${HOME}/nvim-linux64 nvim-linux64.tar.gz
+cp ${HOME}/nvim-linux-x86_64/bin/nvim ${HOME}/.local/bin
+sudo cp -r ${HOME}/nvim-linux-x86_64/share/nvim /usr/share
+rm -rf ${HOME}/nvim-linux-x86_64 nvim-linux-x86_64.tar.gz
