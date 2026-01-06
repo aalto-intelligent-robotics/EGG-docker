@@ -12,8 +12,6 @@ ros_ip_stretch2_lan () {
 }
 
 # Sourcing ROS workspaces
-activate_conda
-conda activate egg_venv
 source /opt/ros/noetic/setup.zsh
 if [ -f $HOME/catkin_ws/devel/setup.zsh ]; then
     source $HOME/catkin_ws/devel/setup.zsh

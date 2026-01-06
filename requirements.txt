@@ -12,6 +12,12 @@ imageio-ffmpeg==0.4.9
 ffmpeg-python
 moviepy==1.0.3
 pycocotools
+langchain-community
+langgraph
+langchain_openai
+langchain_nvidia_ai_endpoints
+langchain-ollama
+langchain_huggingface
 # # VideoRefer
 # # basic dependencies
 # tokenizers==0.20.3
