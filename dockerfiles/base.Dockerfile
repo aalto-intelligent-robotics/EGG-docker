@@ -157,8 +157,4 @@ RUN apt-get update \
 	&& apt-get install ffmpeg libsm6 libxext6  -y \ 
 	&& rm -rf /var/lib/apt/lists/*
 
-RUN curl -fsSL https://ollama.com/install.sh | OLLAMA_VERSION=0.5.7 sh
-# RUN ollama serve & sleep 5 ;\
-# 	ollama pull command-r ;\
-# 	echo "kill 'ollama serve' process" ;\
-# 	ps -ef | grep 'ollama serve' | grep -v grep | awk '{print $2}' | xargs -r kill -9
+RUN curl -fsSL https://ollama.com/install.sh | OLLAMA_VERSION=0.6.7 sh

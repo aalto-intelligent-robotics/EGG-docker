@@ -5,3 +5,5 @@ third_party
 logs
 dsg_output
 models
+config
+*zsh*
