@@ -35,6 +35,7 @@ services:
       - ./bags/:${DOCKER_HOME}/bags
       - ./data/:${DOCKER_HOME}/data
       - ./logs/:${DOCKER_HOME}/logs
+      - ./egg_check.sh:${DOCKER_HOME}/egg_check.sh
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     privileged: true # GUI related

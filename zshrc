@@ -105,4 +105,7 @@ export LS_COLORS='no=00:fi=00:di=34:ow=34;40:ln=35:pi=30;44:so=35;44:do=35;44:bd
 # For Pyright to work with ros packages
 export PYTHONPATH=$PYTHONPATH:$HOME/workspace/egg/python/:$HOME/third_party/VideoRefer/
 
+source ${HOME}/egg-venv/bin/activate
+source ${HOME}/egg_check.sh
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
