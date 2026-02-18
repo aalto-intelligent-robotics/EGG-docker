@@ -39,6 +39,7 @@ RUN apt-get update && apt-get install -y software-properties-common
 RUN add-apt-repository ppa:ubuntu-toolchain-r/test
 RUN apt-get update && apt-get install -y --no-install-recommends \
 	libcurl4-openssl-dev \
+	curl \
 	wget \
 	git \
 	pkg-config \
@@ -112,7 +113,7 @@ RUN chsh -s /usr/bin/bash
 # EGG + VideoRefer requirements
 USER ${USERNAME}
 COPY --chown=${USERNAME}:${USERNAME} requirements.txt /tmp/requirements.txt
-ADD --chown=${USERNAME}:${USERNAME} ./third_party/VideoRefer ${HOME}/third_party/VideoRefer
+ADD --chown=${USERNAME}:${USERNAME} ./third_party/PixelRefer/VideoRefer ${HOME}/third_party/VideoRefer
 # UV
 ADD --chown=${USERNAME}:${USERNAME} https://astral.sh/uv/install.sh uv-installer.sh
 RUN sh uv-installer.sh && rm uv-installer.sh
