@@ -69,7 +69,6 @@ source "$HOME/.config/aliasrc"
 source ${HOME}/.zshrc.d/vi-mode.zsh
 source ${HOME}/.zshrc.d/conda.zsh
 source ${HOME}/.zshrc.d/fzf-funcs.zsh
-source ${HOME}/.zshrc.d/ros_config.zsh
 source ${HOME}/.zshrc.d/nvim-funcs.zsh
 source ${HOME}/.zshrc.d/yazi.zsh
 source ${HOME}/.zshrc.d/nnn.zsh

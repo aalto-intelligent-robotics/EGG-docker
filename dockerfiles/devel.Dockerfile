@@ -19,16 +19,20 @@ USER ${USERNAME}
 # Get Rust
 RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
 
-RUN echo 'source $HOME/.cargo/env' >> $HOME/.bashrc
-
+RUN curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | bash
 RUN source $HOME/.cargo/env \
-	&& rustup install 1.91.0
-
-RUN source $HOME/.cargo/env \
-	&& cargo +1.91.0 install --locked starship eza bat ripgrep du-dust zoxide jless
-
-RUN source $HOME/.cargo/env \
-	&& cargo +1.91.0 install --force yazi-build
+	&& cargo binstall \
+	starship \
+	eza \
+	bat \
+	ripgrep \
+	du-dust \
+	zoxide \
+	jless \
+	yazi-build \
+	yazi-fm \
+	yazi-cli \
+	zellij
 
 RUN python3 -m pip install pynvim black flake8 cmakelang
 
@@ -37,7 +41,6 @@ RUN python3 -m pip install progressbar loguru
 USER root
 RUN apt-get update \
 	&& apt-get install -y zsh \
-	ros-noetic-rqt ros-noetic-rqt-common-plugins \
 	gdb eog mpv pcl-tools libstdc++-13-dev \
 	&& rm -rf /var/lib/apt/lists/*
 RUN chsh -s $(which zsh)
@@ -54,5 +57,4 @@ RUN source ${HOME}/install_dev.sh
 RUN mkdir -p ${HOME}/.cache/zsh \
 	&& touch ${HOME}/.cache/zsh/history
 
-RUN mkdir ${HOME}/.config \
-	&& chown -R ${USERNAME} ${HOME}/.config
+RUN chown -R ${USERNAME} ${HOME}/.config
