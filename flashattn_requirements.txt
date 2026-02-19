@@ -1,0 +1,6 @@
+setuptools==80.9.0
+torch==2.3.0
+torchvision==0.18.0
+psutil==7.0.0
+packaging==26.0
+ninja==1.13.0
