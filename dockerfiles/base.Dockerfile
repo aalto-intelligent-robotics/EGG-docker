@@ -83,7 +83,7 @@ RUN chsh -s /usr/bin/bash
 #===============================================================================
 # EGG + VideoRefer requirements
 USER ${USERNAME}
-COPY --chown=${USERNAME}:${USERNAME} requirements.txt /tmp/requirements.txt
+COPY --chown=${USERNAME}:${USERNAME} flashattn_requirements.txt /tmp/requirements.txt
 ADD --chown=${USERNAME}:${USERNAME} ./third_party/PixelRefer/VideoRefer ${HOME}/third_party/VideoRefer
 # UV
 ADD --chown=${USERNAME}:${USERNAME} https://astral.sh/uv/install.sh uv-installer.sh
